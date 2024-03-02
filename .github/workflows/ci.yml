@@ -12,10 +12,7 @@ env:
   IMAGE_NAME: ${{ github.repository }}
 
 jobs:
-  
-
-  docker:
-    needs: build
+  release:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout code
