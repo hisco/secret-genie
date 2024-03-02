@@ -12,7 +12,9 @@ env:
   IMAGE_NAME: ${{ github.repository }}
 
 jobs:
-  release:
+  
+
+  docker:
     needs: build
     runs-on: ubuntu-latest
     steps:
@@ -37,6 +39,7 @@ jobs:
     - name: Build and push
       uses: docker/build-push-action@v5
       with:
+        context: .
         file: ./Dockerfile
         push: true
         tags: ${{ steps.meta.outputs.tags }}
