@@ -1,0 +1,32 @@
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: manager-role
+rules:
+- apiGroups:
+  - geniepatcher.secret-genie.koalaops.com
+  resources:
+  - secrets
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - geniepatcher.secret-genie.koalaops.com
+  resources:
+  - secrets/finalizers
+  verbs:
+  - update
+- apiGroups:
+  - geniepatcher.secret-genie.koalaops.com
+  resources:
+  - secrets/status
+  verbs:
+  - get
+  - patch
+  - update
